@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 함수</title>
+</head>
+<body>
+    <h1>JS 함수 종류</h1>
+    <hr>
+
+    <ol>
+        <li>일반 함수: 저장하고 재사용할 수 있는 함수</li>
+        <li>콜백 함수: 다른 함수의 전달인자로 사용되는 함수</li>
+        <li>즉시 실행 함수: 저장하지 않고 바로 실행되는 함수</li>
+        <li>익명 함수: 이름 없는 함수로, 즉시 실행/콜백 함수를 받아서 사용</li>
+    </ol>
+
+    <h4>결과</h4>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>;
+
+        // 1. 일반 함수
+        let li = document.getElementsByTagName(`ul`)[0].children;
+
+        function normal(n){
+          return `일반 함수 입니다. n = ${n}`;              
+        }
+
+        li[0].innerHTML = normal(10);
+
+        // 2. 콜백 함수
+        function callback(n){    // n = normal
+            return `콜백: ` + n(30);        // 즉, 함수가 저장됨
+        }
+
+        li[1].innerHTML = callback(normal);
+
+        // 3. 즉시 실행 함수
+        // 호출이 따로 필요 없고 해당 위치에 도달 시 바로 실행 
+        (function (n) {
+            li[2].innerHTML = '즉시 실행 함수 입니다. n = ' + n;
+        })(20);
+
+        // 즉시 실행 함수는 => (화살표) 표기로도 구현가능
+        ((n) => {
+            li[3].innerHTML = '(화살표)즉시 실행 함수 입니다. n = ' + n;
+        }) (5);
+
+        // 4. 익명 함수
+        let anonymous = (n) => {
+            li[4].innerHTML = '익명 함수입니다 n =' + n;
+        }
+
+        anonymous(5);
+        // 저장한 변수명으로 익명 함수 호출 가능
+        // 위에서 본 callback의 매개변수가 사실상 '익명 함수'
+        
+
+    </script>
+    
+</body>
+</html>

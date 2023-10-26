@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz01.html</title>
+    <style>
+        fieldset{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>예약 정보</h1>    
+    <hr>
+
+    <fieldset>
+        <legend>예약</legend>
+        <form>
+        <p>
+            <label for="userName">이름</label>
+            <input name="name" id="userName" placeholder="입력 필수" required>
+        </p>
+        <p>
+            <label for="userPhone">휴대폰</label>
+            <input name="phone" id="userPhone" placeholder="번호를 - 없이 입력" required>
+        </p>
+        <p>
+            <label for="userEmail">이메일</label>
+            <input name="email" id="userEmail" placeholder="이메일 입력" required>
+        </p>
+        <p>
+            <label for="userDate">날짜</label>
+            <input type="date" name="date" id="userDate">
+        </p>
+        <p>
+            <label for="userTime">시간</label>
+            <input type="time" name="time" id="userTime">
+        </p>
+        <p>
+            <label for="userTime2">날짜2</label>
+            <input type="datetime-local" name="datetime-local" id="userTime2">
+        </p>
+        <button>예약하기</button>
+        <button type="reset">다시입력</button>
+        </form>
+    </fieldset>
+</body>
+</html>

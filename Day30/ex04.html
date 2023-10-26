@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+    <style>
+        fieldset{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Input의 타입</h1>
+    <hr> 
+
+    <fieldset>
+        <legend>type</legend>
+
+        <form>
+            <!-- text: 모든 데이터를 입력 가능 -->
+            <!-- value: 전송할 데이터, 값을 저장해두면 적성 시 미리 채워져 있음 =-->
+            <p><input type="text" name="userid" placeholder="ID" required value="itbank"></p>
+            
+            <!-- password: text와 동일하나 텍스트를 가려준다 -->
+            <p><input type="password" name="userpw" placeholder="PW" required> </p>
+
+            <!-- email: 텍스트에 @가 있는지 검사-->
+            <p><input type="email" name="email" placeholder="이메일"></p>
+            
+            <!-- date: 날짜 형태를 입력받는다. * placeholder가 적용되지 않음 -->
+            <p><input type="date" name="birth"></p>
+
+            <!-- color: 색상 값을 선택한다. 전송시 16진수로 전달됨 -->
+            <p><input type="color" name="color"></p>
+            
+            <!-- range: 범위의 막대 바를 출력 -->
+            <p><input type="range" name="year" min="1" max="3"></p>
+            
+            <!-- file: 선택한 파일의 이름을 전송 -->
+            <p><input type="file" name="upload"></p>
+
+            <!-- radio: 다중 택일 선택지. name이 같아야 같은 선택지로 인식된다 -->
+            <p>
+                <input type="radio" name="gender" value="man">남성
+                <input type="radio" name="gender" value="woman">여성
+                <!-- checked: 페이지 접속시 미리 체크가 됨 -->
+                <input type="radio" name="gender" value="none" checked>선택 X
+            </p>
+
+            <!-- checkbox: 다중 선택지. 마찬가지로 name이 같아야 같은 선택지로 인식된다 -->
+            <p>
+                <input type="checkbox" name="hobby" value="game">게임
+                <input type="checkbox" name="hobby" value="movie">영화
+                <input type="checkbox" name="hobby" value="music">음악
+                <input type="checkbox" name="hobby" value="book">독서
+            </p>
+
+            <!-- select 태그: 선택지 태그 (input태그가 아닌 Form 아래에 있는 select태그)-->
+            <p>
+                <select name="major">
+                    <!-- option 태그: select의 항목에 해당 -->
+                    <!-- value가 없으면 태그 사이의 요소가 전송된다 -->
+                    <option value="com">컴퓨터공학</option>
+                    <option>기계공학</option>
+                    <option>회계학</option>
+                    <option>경영학</option>
+                    <option>국어국문학</option>
+                </select>
+            </p>
+            
+            <!-- textarea: 여러 행을 입력할 수 있는 란 -->
+            <!-- 데이터를 미리 채울땐 value 속성이 아닌 태그 사이에 작성 -->
+            <p><textarea name="info" cols="30" rows="10" placeholder="자기소개">안녕하세요</textarea></p>
+
+            <button>전송</button>
+        </form>
+
+    </fieldset>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>다양한 그래프들</h1>
+    <hr>
+
+    <div style="width: 600px">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let lables = ['근력', '지력', '체력', '지구력', '재능'];
+        let itbank = [50, 80, 70, 40, 90];
+        let naver = [80, 50, 90, 60, 70];
+
+        let datasets = [
+            {
+                label: 'itbank님',
+                data: itbank,
+                backgroundColor: [
+                    '#ff0000A0',
+                    '#00ff00A0',
+                    '#0000ffA0',
+                    '#ffff00A0',
+                    '#ff00ffA0',
+                ],
+                // circular: true,
+                // angle: 30,
+                // polar 전용 옵션, 참고만 한다
+            },
+
+        ]
+
+        let options = {                      
+            scale: {
+                r: {
+                    min: 0,
+                    max: 100,
+                },
+                ticks: {
+                    stepSize: 20,
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Player Paramter'
+                    
+                }
+            }
+        }
+
+        let chart = new Chart(ctx, {
+            type: 'polarArea',                      
+            data: {                          
+                labels: lables,             
+                datasets: datasets,
+            },
+            options: options,
+        });
+    </script>
+</body>
+</html>

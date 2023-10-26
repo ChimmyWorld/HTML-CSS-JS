@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+    <style>
+        th, td{
+            padding: 5px 10px;
+        }
+        input{
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>label</h1>
+    <hr>
+
+    <h4>간격을 맞출땐 CSS가 정석이지만 Table을 활용하기도 한다</h4>
+ 
+    <form>
+       <table>
+            <tr>
+                <td><label for="userName">이름</label></td>
+                <td><input type="text" id="userName"></td>
+            </tr>
+            <tr>
+                <td><label for="userBirth">생년월일</label></td>
+                <td><input type="date" id="userBirth"></td>
+            </tr>
+            <tr>
+                <td><button>전송</button></td>
+            </tr>
+       </table>
+    </form>
+</body>
+</html>

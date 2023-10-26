@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz02.html</title>
+
+    <style>
+        .container > div{
+            box-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            margin: 10px 0;
+            background-color: gold;
+        }
+
+        .half{
+            animation: half 5s linear infinite;
+            
+        }
+
+        .full{
+            animation: full 5s linear infinite;
+            
+        }
+
+        @keyframes half {
+            50% {
+                width: 50%;
+                border-radius: 30px;
+                background-color: red;
+            
+            }
+        }
+
+        @keyframes full{
+            50%{
+                width: 100%;
+                border-radius: 30px;
+                background-color: red;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz02</h1>
+    <hr>
+
+    <div class="container">
+        <div class="half"></div>
+        <div class="full"></div>
+    </div>
+</body>
+</html>

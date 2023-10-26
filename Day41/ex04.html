@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>REST API Server</h1>
+    <hr>
+
+    <h4>서버는 수업자료/Test의 Django Project를 사용한다</h4>
+    
+    <table>
+        <tr>
+            <th>IDX</th>
+            <th>아이디</th>
+            <th>패스워드</th>
+            <th>닉네임</th>
+            <th>이메일</th>
+            <th>가입일</th>
+        </tr>
+    </table>
+
+    <br>
+
+    <button>입력</button>
+    <button>수정</button>
+    <button>삭제</button>
+
+    <script>
+        let url = 'http://127.0.0.1:8000';
+
+        fetch(url, { method: 'get' })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            let table = document.querySelector('table');
+            let msg = table.innerHTML;
+
+            for (let i = 0; i < data.length; i++) {
+                // console.log(data[i]);
+                msg += '<tr>';
+                msg += `<td>${data[i].id}</td>`;
+                msg += `<td>${data[i].userid}</td>`;
+                msg += `<td>${data[i].userpw}</td>`;
+                msg += `<td>${data[i].nick}</td>`;
+                msg += `<td>${data[i].email}</td>`;
+                msg += `<td>${data[i].jdate}</td>`;
+                msg += '</tr>';
+            }
+            
+            table.innerHTML = msg;
+        })
+
+        let btns = document.querySelectorAll('button');
+
+        btns[0].onclick = () => {
+            let input = open('popup/input.html', '_blank',
+                        'top=300, left=4000, width=300, height=400');
+        }
+
+        btns[1].onclick = () => {
+            let id = (Number)(prompt('수정할 번호'));
+            let pw = prompt('패스워드');
+
+            let sample = {
+                userpw: pw,
+            };
+
+            let url = 'http://127.0.0.1:8000/put/' + id + '/';
+
+            fetch(url, {
+                method: 'put',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(sample),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.msg);
+            })
+        }
+
+        btns[2].onclick = () => {
+            let id = (Number)(prompt('삭제할 번호'));
+            url += '/delete/' + id + '/';
+
+            fetch(url, { method: 'delete' })
+            .then(response => response.json() )
+            .then(data => {
+                console.log(data);
+                alert(data.msg);
+            });
+        }
+
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이드</title>
+    <style>
+        .container{
+            width: 400px;
+            overflow: hidden;
+        }
+        .container img{
+            width: 400px;
+        }
+        .slider{
+            display: flex;
+            animation: slide 10s ease infinite;
+        }
+
+        @keyframes slide{
+            50%{
+                transform: translateX(-800px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드</h1>
+    <hr>
+
+    <div class="container">
+        <div class="slider">
+            <div><img src="img/first.jpg"></div>
+            <div><img src="img/second.jpg"></div>
+            <div><img src="img/third.jpg"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>메뉴 옮기기</h1>
+    <hr>
+    
+    <fieldset class="userInfo">
+        <legend>사용자 정보</legend>
+        <p>
+            <label form="userName"></label>
+            <input name="userName" id="userName" type="text">
+        </p>
+        <p>
+            <label form="userPhone"></label>
+            <input name="userPhone" id="userPhone" type="text"></p>
+        <p>
+            <label form="userAddress"></label>
+            <input name="userAddress" id="userAddress" type="text">
+        </p>
+    </fieldset>
+
+    <br>
+
+    <fieldset class="delInfo">
+        <legend>주문 정보</legend>
+        <p><input type="checkbox">사용자 정보와 동일</p>
+        <p>
+            <label form="delName"></label>
+            <input name="delName" id="delName" type="text">
+        </p>
+        <p>
+            <label form="delPhone"></label>
+            <input name="delPhone" id="delPhone" type="text"></p>
+        <p>
+            <label form="delAddress"></label>
+            <input name="delAddress" id="delAddress" type="text">
+        </p>
+    </fieldset>
+
+    <script>
+        let userInfo = document.querySelectorAll('.userInfo input');
+        let delInfo = document.querySelectorAll('.delInfo input');
+        let checkbox = document.querySelectorAll('.delInfo input')[0];
+
+        checkbox.onclick = () => {
+            let userInfo = document.querySelectorAll('.userInfo input');
+            let delInfo = document.querySelectorAll('.delInfo input')
+            delInfo[1].value = userInfo[0].value;
+            delInfo[2].value = userInfo[1].value;
+            delInfo[3].value = userInfo[2].value;            
+        }
+    </script>
+</body>
+</html>

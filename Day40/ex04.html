@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+</head>
+<body>
+    <h1>BOM</h1>
+    <hr>
+
+    <h4>History 객체</h4>
+
+    <button>이전</button>
+    <button>다음</button>
+    <button>지정 내역</button>
+
+    <script>
+        let last = document.querySelectorAll('button')[0];
+        let next = document.querySelectorAll('button')[1];
+        let pmt = document.querySelectorAll('button')[2];
+
+        last.onclick = () => {
+            history.back();
+        }
+
+        next.onclick = () => {
+            history.forward();
+        }
+        
+        pmt.onclick = () => {
+            let n = Number(prompt('이동할 페이지 입력'));
+            history.go(n);
+        }
+
+    </script>
+</body>
+</html>

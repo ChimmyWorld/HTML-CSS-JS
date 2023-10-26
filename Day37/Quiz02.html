@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz02.html</title>
+</head>
+<body>
+    <h1>Quiz02</h1>
+    <hr>
+
+    <h3>1. 1 ~ n 까지 합계를 반환 (단, 즉시 실행 함수로)</h3>
+    <p></p>
+
+    <h3>2. 절대값을 반환 (단, 화살표 함수로)</h3>
+    <p></p>
+
+    <h3>3. 거꾸로 수를 반환 (단, 익명 함수로)</h3>
+    <p></p>
+
+    <h3>4. 정수의 약수 목록을 문자열로 반환 (단, 화살표 익명 함수로)</h3>
+    <p></p>
+    
+    <script>
+        let p = document.getElementsByTagName('p');
+
+        // 1.
+        let result = function (n) {
+            let sum = 0;
+            for (let i = 1; i <= n; i++){
+                sum += i;
+            }
+            return sum;
+        } (5);  // 소괄호 여부에 따라 즉시/익명 함수 판별 가능
+
+        p[0].innerHTML = result;
+
+        // 2.
+        let abs = ((n) => {
+            if (n < 0) {
+                n *= -1;
+            }
+            return -n;
+        }) (-5);
+
+        p[1].innerHTML = abs;
+        
+        // 3.
+        let rev = function(n) {
+            let result = 0; 
+
+            while(n !=0){
+                result = result * 10 + n % 10;
+                n = parseInt(n/10);
+            }
+            return result;
+        };
+
+        p[2].innerHTML = rev(123);
+
+        // 4.
+        let div = (n) => {
+            let result = "";
+
+            for(let i = 1; i<=n; i++){
+                if(n % i ==0){
+                    result += i + " ";
+                }
+            }
+            return result;
+        };
+
+        p[3].innerHTML = div(6);
+    </script>
+</body>
+</html>

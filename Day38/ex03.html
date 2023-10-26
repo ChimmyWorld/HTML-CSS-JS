@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+
+    <style>
+        .css{
+            color: red;
+            font-size: 120%;
+        }
+    </style>
+</head>
+<body>
+    <h1>요소 속성 조작</h1>
+    <hr>
+
+    <h4>setAttribute, getAttribute</h4>
+
+    <p>HTML</p>
+
+    <p>CSS</p>
+    
+    <img src="img/dora.png">
+
+    <script>
+        let img = document.getElementsByTagName('img')[0];
+
+        function hello(){
+            img.setAttribute('src', 'img/Hello World!!!.png');
+        }
+
+        function dora(){
+            img.src = 'img/dora.png'
+        }
+    
+    </script>
+
+    <p>
+        <button onclick="hello()">변경</button>
+        <button onclick="dora()">되돌리기</button>
+    </p>
+</body>
+</html>

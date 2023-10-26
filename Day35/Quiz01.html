@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz01.html</title>
+</head>
+<body>
+    <h1>Quiz01</h1>
+    <p>이름, 국 영 수 점수를 입력 받아서 합계를 출력</p>
+    <hr>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        var name = prompt('이름을 입력하세요');
+        var kor = Number(prompt('국어 점수를 입력하세요'));
+        var eng = Number(prompt('영어 점수를 입력하세요'));
+        var mat = Number(prompt('수학 점수를 입력하세요'));
+        var sum = kor + eng + mat;
+
+        var result = document.getElementsByTagName('ul')[0];
+        var msg =
+         `<li>이름 = ${name}</li>` +
+         `<li>국어 = ${kor}</li>` +  
+         `<li>영어 = ${eng}</li>` + 
+         `<li>수학 = ${mat}</li>` +
+         `<li>합계 = ${sum}</li>`;
+
+        result.innerHTML= msg;
+    </script>
+</body>
+</html>

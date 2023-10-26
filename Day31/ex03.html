@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+
+    <!-- HTML내에서 style 태그 내에 CSS구문을 작성 가능 -->
+    <style>
+        /* CSS 주석 */
+        p { /* 4. 세부적인 선택자라면 우선순위가 높다 (p > *) */
+            color: red;
+        }
+
+        * { /* 1. 전체 선택자(*): 모든 태그에 스타일 적용*/
+            color: orange
+        }
+        
+        p { /* 2. 태그 선택자: 지정 태그 모두에 스타일 적용 */
+            font-family: '궁서체';
+        }
+        
+        p { /* 3. 같은 태그라면 마지막 속성이 적용된다 */
+            font-family: '굴림체';
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>CSS</h1>
+    <hr>
+    
+    <p>Cascading Style Sheet</p>
+
+    <p>Cascade는 연쇄적, 혹은 '폭포처럼 흐르는 물'을 의미</p>
+</body>
+</html>

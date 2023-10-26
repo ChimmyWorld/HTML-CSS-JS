@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+</head>
+<body>
+    <h1>BOM</h1>
+    <hr>
+
+    <h4>Browser Object Model</h4>
+
+    <button>새창</button>
+
+    <script>
+        document.querySelector('button').onclick = () => {
+            var newWin = open(
+                'https://www.naver.com',
+                '_blank',
+                'top=100, left=100, width=500, height=500')
+        }
+    </script>
+</body>
+</html>

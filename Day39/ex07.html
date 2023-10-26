@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex06.html</title>
+
+    <style>
+        .container {
+            width: 400px;
+            /*overflow: hidden;*/
+        }
+        .slider {
+            display: flex;
+            /*animation: slide 5s ease infinite;*/
+        }
+        .slider > img {
+            width: 400px;
+        }
+        @keyframes slide {
+    
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 슬라이드</h1>
+    <hr>
+
+    <div class="container">
+        <div class="slider">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+            <img src="img/first.jpg">
+            <img src="img/second.jpg">
+            <img src="img/third.jpg">
+        </div>
+
+    </div>
+
+    <script>
+        let css = document.styleSheets[0];
+        let slider = document.querySelector('.slider').children;
+        let n = slider.length;
+        let size = 400;
+        let per = 100 / n;
+
+        css.cssRules[1].style.animation = `slide ${n}s ease infinite`;
+
+        for (let i = 0; i < n; i++) {
+            css.cssRules[3].appendRule(`${per * i}% {transform: translate(-${size * i}px);}`);
+        }
+    </script>
+</body>
+</html>

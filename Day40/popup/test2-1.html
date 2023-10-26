@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2-1.html</title>
+</head>
+<body>
+    <fieldset>
+        <p><input name="name" placeholder=""></p>
+        <p><input name="age" type="number" placeholder="나이"></p>
+        <button>작성</button>
+    </fieldset>
+
+    <script>
+        document.querySelector('button').onclick = () => {
+            let inputs = document.querySelectorAll('input');
+
+            let result = {
+                name: inputs[0].value, 
+                age: inputs[1].value,
+                adult: ((Number)(inputs[1].value)>= 19) ? '성인' : '미성년자',              
+            };
+            
+            opener.getPopup(result);
+
+            close();
+        }
+    </script>
+</body>
+</html>

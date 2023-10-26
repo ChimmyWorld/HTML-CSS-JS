@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1.html</title>
+</head>
+<body>
+    
+    <fieldset>
+        <legend>사용자 정보</legend>
+
+        <p><input name="name" placeholder="이름"></p>
+        <p><input name="height" placeholder="신장"></p>
+        <p><input name="birth" type="date"></p>
+
+        <button>작성</button>
+    </fieldset>
+
+    <script>
+        let fieldset = document.querySelector('fieldset');
+        let child = fieldset.children;
+
+        child[4].onclick = () => {
+            let inputs = fieldset.querySelectorAll('input');
+            opener.getPopUpData(inputs);
+
+            close();
+        }
+    </script>
+
+</body>
+</html>

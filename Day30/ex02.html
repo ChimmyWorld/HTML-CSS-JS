@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+
+        th, td{
+            border: solid 1px black;
+            padding: 15px;
+        }
+    </style>
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>미디어 태그</h1>
+    <hr>
+    <p><audio src="src/music.mp3" controls muted></audio></p>
+    <p><video src="src/movie.mp4" controls width="500px" muted autoplay></video></p>
+    
+    <table>
+        <tr>
+            <th>영상 이름</th>
+            <th>유튜브 영상</th>
+        </tr>
+        <tr>
+            <td>Best wave at Santa Cruz</td>
+            <td><p><iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/8SQL4knuDXU?mute=1&autoplay=1" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; 
+                encrypted-media; gyroscope; picture-in-picture; 
+                web-share" allowfullscreen></iframe></p></td>
+        </tr>
+        <tr>
+            <td>Chicama 1:47</td>
+            <td><p>
+                <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/a1-ctBMajmY?mute=1&autoplay=1"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write;
+                encrypted-media; gyroscope; picture-in-picture; 
+                web-share" allowfullscreen></iframe>
+            </p></td>
+        </tr>
+
+    </table>
+  
+</body>
+</html>

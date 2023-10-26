@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex07.html</title>
+</head>
+<body>
+    <h1>다양한 그래프들 </h1>
+    <hr>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const ctx = document.getElementById('myChart');
+    
+    let labels =['January', 'February', 'March', 'April', 'May', 'June', 'July']
+    let month  = [12, 19, 20, 15, 14, 13, 10];
+    let avg = [9, 10, 7, 8, 7, 9, 6];
+
+    let datasets = [            
+             {
+                type: 'line',
+                label: '평균',
+                data: avg,
+             },              
+             {  
+                type: 'bar',
+                label: '월별 판매량',          
+                data: month,             
+            },
+    ]
+
+    let options = {                              
+            scales: {                           
+                y: {
+                beginAtZero: true,
+                min: 0,
+                max: 25,                 
+                },
+            
+            },
+            ticks: {
+                    stepSize: 10,
+            }
+        }
+
+    new Chart(ctx, {                        
+        data: {                              
+        labels: labels,                         
+        datasets: datasets,
+        },
+        options: options,
+    });
+</script>
+</body>
+</html>

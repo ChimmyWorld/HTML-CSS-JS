@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz02.html</title>
+</head>
+<body>
+    <h1>Quiz02</h1>
+    <hr>
+
+    <h4>휴게소 날씨 REST API + Chart</h4>
+
+    <ul></ul>
+
+    <div style="width: 1200px">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        let url = 'http://data.ex.co.kr/openapi/restinfo/restWeatherList?key=test&type=json&sdate=20230101&stdHour=10';
+        let labels = new Array();
+        let datas = new Array();
+
+        fetch(url, {
+            method: 'get',
+        })
+        .then(response => response.json())
+        .then(data => {
+            data = data.list;
+
+            const ctx = document.getElementById('myChart');
+
+            for(let i=0; i <data.length; i++){
+                let tempValue = Math.round(data[i].tempValue * 10) /10;
+
+                labels.push(data[i].unitName);
+                datas.push(tempValue);
+            }
+
+            let datasets = [
+                {
+                    label: '온도',
+                    data: datas,
+                    backgroundColor: ['#ff000020'],
+                    borderColor: ['#ff0000'],
+                },
+            ]
+
+            let options = {                      
+                scale: {
+
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '휴게소 별 날씨'
+                        
+                    }
+                }
+            }
+
+            let chart = new Chart(ctx, {
+                type: 'line',                      
+                data: {                          
+                    labels: labels,             
+                    datasets: datasets,
+                },
+                options: options,
+            });
+        })
+    </script>
+
+    
+</body>
+</html>

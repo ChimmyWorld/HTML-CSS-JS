@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex05.html</title>
+</head>
+<body>
+    <h1>다양한 그래프들</h1>
+    <hr>
+
+    <div style="width: 600px">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let data = [
+            {x: "서울", y: 9904312, r: 10},
+            {x: "부산", y: 3448737, r: 6},
+            {x: "인천", y: 2890451, r: 3},
+            {x: "대구", y: 2466052, r: 2},
+            {x: "대전", y: 1538394, r: 4},
+            {x: "광주", y: 1493660, r: 3},
+            {x: "울산", y: 1147037, r: 4},
+            {x: "세종", y: 340575, r: 5},
+            {x: "경기", y: 13479503, r: 9},
+            {x: "강원", y: 1539521, r: 8},
+            {x: "충북", y: 1598599, r: 3},
+            {x: "충남", y: 2120995, r: 4},
+            {x: "전북", y: 1815112, r: 3},
+            {x: "전남", y: 1861894, r: 3},
+            {x: "경북", y: 2658956, r: 4},
+            {x: "경남", y: 3358828, r: 3},
+            {x: "제주", y: 670876, r: 2}   
+        ]
+
+
+        let datasets = [
+            {
+                label: '평균소득',
+                data: data,
+            },
+        ]
+
+        let options = {                        // 기타 설정 : 종류가 워낙 많아. 공식 사이트를 찾아보는 것을 권장
+            scales: {                          // 축의 구성을 설정
+                x: {
+                    type: 'category',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: '도시',
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: '인구수',
+                    }
+                }
+            }
+        }
+
+        new Chart(ctx, {
+            type: 'bubble',                     
+            data: {                            
+                datasets: datasets,
+            },
+            options: options,
+        });
+    </script>
+</body>
+</html>

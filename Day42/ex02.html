@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>다양한 그래프들 </h1>
+    <hr>
+
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const ctx = document.getElementById('myChart');
+    
+    let labels =['January', 'February', 'March', 'April', 'May', 'June', 'July']
+    let data  =[12, 19, 3, 5, 2, 3, 10];
+    
+    let datasets = [                          
+             {   
+                label: '월별 판매량',          
+                data: data,    
+                borderColor: 'red',          
+            },
+    ]
+
+    let options = {                              
+            scales: {                            // 축의 구성을 설정
+                y: {
+                beginAtZero: true                   
+                }
+            }
+        }
+
+    new Chart(ctx, {
+        type: 'line',                            
+        data: {                              
+        labels: labels,                         
+        datasets: datasets,
+        },
+        options: options,
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex14.html</title>
+</head>
+<body>
+    <h1>함수</h1>
+    <hr>
+
+    <ul>
+        <li>반환값이 없는 함수: 종속문을 그냥 실행만 한다</li>
+        <li>반환값을 가지는 함수: 종속문 실행 후의 결과를 되돌려 준다</li>
+    </ul>
+
+    <h4>F12 콘솔에서 확인</h4>
+
+    <script>
+        // 반환x
+        function adder1(n1, n2){
+            let sum = n1 + n2;
+            console.log(`${n1} + ${n2} = ${sum}`);
+        }
+
+        // 반환o (JS는 반환형이 없어 호출 시 어떤 값이 반환될지 유추하기 어렵다)
+        function adder2(n1, n2){
+            let sum = n1 + n2;
+            return sum;
+        }
+
+        adder1(10, 5);              // 1. 반환 값이 없어 바로 호출해 사용
+
+        let result = adder2(10, 7); // 2. 반환값이 있으니 변수에 받거나
+        console.log(`result = ${result}`);          
+        
+        console.log(`adder2(7, 6) = ${adder2(7, 6)}`); // 다른 함수에 전달인자로 넘긴다
+
+        // 반환값이 없는 함수를 변수에 받거나 다른 함수에 전달 시 'undefine'
+        console.log(`adder1(5,5) = ${adder1(5,5)}`);
+
+    </script>
+</body>
+</html>

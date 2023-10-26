@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz03.html</title>
+    <style>
+        label{
+            font-weight : bold;
+            display: inline-block;
+            width: 65px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>상품 주문서</h1>
+    <form>
+    <fieldset>
+        <legend>개인 정보</legend>
+        
+        <p>
+        <label for="userName">이름</label>
+        <input name="name" id="userName" placeholder="여백없이 입력"> <br>
+        </p>
+        
+        <p>
+        <label for="userPhone">연락처</label>
+        <input name="phone" id="userPhone" placeholder="연락 가능한 번호"> <br>
+        </p>
+
+    </fieldset>
+
+    <fieldset>
+        <legend>배송지 정보</legend>
+            <p>
+            <label for="deliveryAddress">주소</label>
+            <input name="address" id="deliveryAddress"> <br>
+            </p>
+
+            <p>
+            <label for="deliveryPhone">전화번호</label>
+            <input name="address" id="deliveryPhone"> <br>
+            </p>
+
+            <p>
+            <label for="deliveryMemo">메모</label>
+            <textarea name="memo" cols="60" rows="5" id="deliveryMemo"></textarea>
+            </p>
+    </fieldset>
+    
+    <fieldset>
+        <legend>주문 정보</legend>
+        <p><input type="checkbox" name="item1">
+            과테말라 안티구아 (100g) <input type="text" value="0" > 개 <br></p>
+        <p><input type="checkbox" name="item2">
+            인도네시아 만델리 (100g) <input type="text" value="0"> 개 <br></p>
+        <p><input type="checkbox" name="item3">
+            탐라는도다(블렌딩) (100g) <input type="text" value="0"> 개 <br></p>
+    </fieldset>
+    <br>
+
+    <button>주문하기</button>
+    <button type="reset">다시 작성</button>
+    </form>
+</body>
+</html>

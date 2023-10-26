@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz01.html</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <hr>
+
+    <p></p>
+
+    <script>
+        open('popup/test2.html', '_blank',
+        'top=100, right=100, width=400, height=500');
+
+        function getData(data){
+            let p = document.querySelector('p');
+            let name =data[0].value;
+            let age = data[1].value;
+
+            let msg = (age >= 19) ? '성인' : '미성년자';
+            msg = `이름: ${name} | 나이: ${age} (${msg})`;
+            
+            p.innerHTML = msg;
+        }
+
+    </script>
+</body>
+</html>

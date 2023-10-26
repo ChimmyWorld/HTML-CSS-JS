@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz02.html</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border : 1px solid black;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz2</h1>
+    <hr>
+    
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">2단</th>
+            </tr>
+        </thead>
+        <tbody class="dan">
+
+        </tbody>
+    </table>
+    
+
+    <script>
+        var tbody = document.getElementsByClassName('dan')[0];
+
+        msg = "";
+
+        for (let i = 1; i <= 9; i++){
+            msg +=
+            `<tr>` +
+                `<th>2 * ${i} </th>` +
+                `<th> ${2 * i}</th>` +
+            `<tr>`;
+        }
+
+        tbody.innerHTML = msg;
+    </script>
+
+</body>
+</html>

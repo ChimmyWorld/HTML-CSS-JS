@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex09.html</title>
+</head>
+<body>
+
+    <h3>F12 개발자 도구에서 확인</h3>
+
+    <script>
+        // class를 따로 작성하지 않고 바로 객체를 작성 후 메모리에 생성한다
+        let per = {
+            name : '홍길동',
+            age  : 27,
+            height: 175.3,
+
+            show : function(){
+                console.log(`${this.name}님 ${this.age}세, ${this.height}cm`);
+            },
+
+            // 화살표 함수는 메서드로 사용할 수 없다
+            // 객체를 구분하기 위한 this가 존재하기 않기 때문
+            show2 : () => {
+                console.log(`${this.name}님 ${this.age}세, ${this.height}cm`);
+            }
+        } 
+
+        console.log(typeof per);
+        console.log(per);
+
+        // 객체의 멤버에 접근할 땐 .(dot) 연산자를 사용
+        console.log(`${per.name}, ${per.age}세, ${per.height}`);
+
+        per.show();
+        per.show2(); // 화살표 함수는 this가 없다
+
+    </script>
+</body>
+</html>

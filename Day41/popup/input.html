@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input.html</title>
+
+    <style>
+        .msg {
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>입력</legend>
+
+        <p><input name="userid" placeholder="아이디"></p>
+        <p><input name="userpw" placeholder="패스워드"></p>
+        <p><input name="nick" placeholder="닉네임"></p>
+        <p><input name="email" placeholder="이메일"></p>
+
+        <button>전송</button>
+
+        <p class="msg"></p>
+    </fieldset>
+    
+    <script>
+        let url = 'http://127.0.0.1:8000/'
+
+        document.querySelector('button').onclick = () => {
+            let inputs = document.querySelectorAll('input');
+            
+            let sample = {
+                userid: inputs[0].value,
+                userpw: inputs[1].value,
+                nick: inputs[2].value,
+                email: inputs[3].value,
+            };
+            
+            url += 'add/';
+
+            fetch(url, {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(sample),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(data.msg);
+                close();
+            })
+        }
+        
+        document.getElementsByName('userid')[0].onblur = (e) => {
+            fetch(url, {method: 'get'})
+            .then(response => response.json())
+            .then(data => {
+                let inputId = e.target.value;
+                let msg ='';
+                console.log('입력: ' + inputId);
+                
+                for (let i =0; i<data.length; i++){
+                    if (inputId == data[i].userid){
+                        msg = '이미 가입된 ID입니다';
+
+                        
+
+                        e.target.value ='';
+                        e.target.focus();
+                        break;
+                    }
+                }
+
+                document.querySelector('.msg').innerHTML = msg;
+            })
+        }
+    
+    </script>
+
+</body>
+</html>

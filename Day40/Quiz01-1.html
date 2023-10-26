@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>강사님 풀이</title>
+</head>
+<body>
+    <h1>강사님 풀이</h1>
+    
+    <h4>결과</h4>
+
+    <ul></ul>
+
+    <button class="popup">입력</button>
+
+    <script>
+        let popup = document.querySelector('.popup');
+
+        popup.onclick = () => {
+            let newWin = open('popup/test2-1.html', '_blank', 
+                            'top=500, left=4000, width=500, height=600');
+        };
+
+        function getPopup(data) {
+            let ul = document.querySelector('ul');
+            let msg = '';
+            msg += `<li>이름 : ${data.name }</li>`;
+            msg += `<li>나이 : ${data.age }</li>`;
+            msg += `<li>성인 : ${data.adult }</li>`;
+            
+            ul.innerHTML = msg;
+
+            
+
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>강사님 풀이</h1>
+    <hr>
+
+    <fieldset>
+        <legend>사용자 정보</legend>
+
+        <p><input name="name" type="text" placeholder="이름"></p>
+        <p><input name="name" type="text" placeholder="연락처"></p>
+        <p><input name="name" type="text" placeholder="주소"></p>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>주문 정보</legend>
+        
+        <p><input class="check" type="checkbox">사용자 정보와 동일</p>
+        <p><input name="name" type="text" placeholder="이름"></p>
+        <p><input name="name" type="text" placeholder="연락처"></p>
+        <p><input name="name" type="text" placeholder="주소"></p>
+    </fieldset>
+
+    <script>
+        document.querySelector('.check').onclick = () => {
+            let info = document.querySelectorAll('fieldset')[0].querySelectorAll('input');
+            let result = document.querySelectorAll('fieldset')[1].querySelectorAll('input');
+
+            for (let i=0; i <info.length; i++){
+                result[i + 1].value = info[i].value;
+            }
+        }
+    </script>
+</body>
+</html>

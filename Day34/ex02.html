@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz01.html</title>
+
+    <style>
+        /* +는 현재 선택자의 다음 선택자를 의미한다 */
+        input:checked + .container > img:nth-child(1){
+            transform: skew(45deg, 0);
+            transition: all 0.3s;
+        }
+        input:checked + .container > img:nth-child(2){
+            transform: rotate(180deg);
+            transition: all 2s;
+        }
+        input:checked +.container > img:nth-child(3){
+            transform: scale(1.5, 2.0);
+            transition: all 2s;
+        }
+        input:checked +.container > img:nth-child(4){
+            transform: translate(-200px, 200px);
+            transition: all 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz01</h1>   
+    <hr>
+
+    <input type="checkbox"> 체크
+
+    <div class="container">
+        <img src="img/banner.png" width="150px">
+        <img src="img/banner.png" width="150px">
+        <img src="img/banner.png" width="150px">
+        <img src="img/banner.png" width="150px">
+    </div>    
+
+</body>
+</html>

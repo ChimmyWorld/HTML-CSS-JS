@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+</head>
+<body>
+    <h1>REST</h1>
+    <hr>
+
+    <ul>
+        <li>Representational State Transfer</li>
+        <li>자원을 이름으로 구분하여 해당 자원의 상태를 주고 받는 것을 의미</li>
+        <li>Http Request Method인 GET, POST, PUT, DELETE를 통해서 자원을 주고 받는다</li>
+        <li>REST API는 이러한 REST 방식으로 다른이가 서버의 데이터를 사용할 수 있게 만든 Interface</li>
+    </ul>
+
+    <h4>휴게소 날씨 API</h4>
+
+    <ul></ul>
+
+    <script>
+        let url = 'http://data.ex.co.kr/openapi/restinfo/restWeatherList?key=test&type=json&sdate=20230905&stdHour=10';
+        
+        fetch(url, {
+            method: 'get',
+        })
+        .then(response => response.json())
+        .then(data => {
+            data = data.list;
+            let msg = '';
+
+            for (let i = 0; i < data.length; i++) {
+                // console.log(data[i])
+                // console.log(`${data[i].unitName} - ${data[i].weatherContents}`);
+                msg += `<li>${data[i].unitName} - ${data[i].weatherContents} - ${data[i].tempValue}도</li>`;
+            }
+
+            document.querySelectorAll('ul')[1].innerHTML = msg;
+        })
+    </script>
+
+</body>
+</html>

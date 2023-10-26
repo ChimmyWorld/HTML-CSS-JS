@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz4.html</title>
+</head>
+<body>
+    <h1>Quiz4</h1>
+    <hr>
+
+    <h3>1. 1 ~ n까지 일렬로 출력</h3>
+
+    <p></p>
+
+    <h3>2. n ~ 1까지 일렬로 출력</h3>
+    
+    <p></p>
+
+    <h3>3. 1 ~ n까지 합계 출력</h3>
+
+    <p></p>
+
+    <h4>4. n * n 별찍기 출력</h4>
+
+    <p></p>
+
+    <script>
+        // 1번
+        let n = 10;
+        let result1 = "";
+        
+        for (let i = 1; i <= n; i++) {
+            result1 += i + " ";
+        }
+
+        document.getElementsByTagName('p')[0].innerHTML = result1;
+
+
+        // 2번
+        let result2 = "";
+        let sum = 0;
+
+        for (let i = n; i >= 1; i--) {
+            result2 += i + " ";
+            sum += i;
+        }
+
+        document.getElementsByTagName('p')[1].innerHTML = result2;
+
+
+        // 3번
+        document.getElementsByTagName('p')[2].innerHTML = sum;
+
+        
+        // 4번
+        let star = "";
+
+        for (let i = 1; i <= n; i++) {
+            for (let j = 1; j <= i; j++) {
+                star += "*"
+            }
+            star += "<br>";
+        }
+
+        document.getElementsByTagName('p')[3].innerHTML = star;
+    </script>
+    
+</body>
+</html>

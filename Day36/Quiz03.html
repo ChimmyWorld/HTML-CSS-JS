@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz03.html</title>
+    
+    <style>
+        main > div{
+            border: 1px solid black;
+            padding: 10px 15px;
+            display: inline-block;
+            text-align: center;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>구구단 표</h1>
+    <hr>
+
+    <main>
+        <div>
+        
+        </div>
+    </main>
+
+    <script>
+        var div = document.getElementsByTagName('main')[0];
+        let msg ="";
+
+        for(let i = 2; i <=9; i++) {
+            msg += "<div>"
+            msg += `<h3>${i}단</h3><hr>`;
+            
+            for (let j = 1; j <=9; j++){
+                msg += `${i} * ${j} = ${i * j}<br>`;
+            }
+
+            msg += "</div>";
+        }
+
+        div.innerHTML = msg;
+
+
+    </script>
+
+</body>
+</html>

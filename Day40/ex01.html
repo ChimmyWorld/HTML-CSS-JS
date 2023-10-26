@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex01.html</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>연습</h1>
+    <hr>
+
+    <ul>
+        <li>사용자에게 이름, 나이를 입력 받을 input을 작성</li>
+        <li>전송버튼을 누르면 입력 창 아래 결과를 출력</li>
+        <li>작성한 이름과 나이를 출력하고</li>
+        <li>19세 이상이면 성인, 아니면 미성년자로 출력</li>
+    </ul>
+
+    <hr>
+
+    <div>
+        <p><input type="text" placeholder="이름"></p>
+        <p><input type="text" placeholder="나이"></p>
+        <button>전송</button>
+    </div>
+
+    <hr>
+    <h3>결과</h3>
+
+    <ul class="result">
+
+    </ul>
+
+    <script>
+        let btn = document.querySelector('button');
+        let input = document.querySelectorAll('input');
+        let name = input[0].value;
+        let age =  input[1].value;
+    
+        let li1 = document.createElement('li');
+        let li2 = document.createElement('li');
+        let li3 = document.createElement('li');
+        let ul = document.querySelector('.result');
+
+        let result = () => {
+            let name = input[0].value;
+            let age =  input[1].value;
+
+            if (age >= 19) li3.innerHTML = '성인';
+            else li3.innerHTML = '미성년자';
+
+            li1.innerHTML = name;
+            li2.innerHTML = age;
+
+            ul.appendChild(li1);
+            ul.appendChild(li2);
+            ul.appendChild(li3);
+        }
+
+        btn.onclick = result;
+    </script>
+</body>
+</html>

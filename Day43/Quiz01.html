@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz01.html</title>
+</head>
+<body>
+    <h1>Quiz01</h1>
+    <hr>
+
+    <div style="width: 600px">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <button>레이더</button>
+    <button>파이</button>
+    <button>도넛</button>
+    <button>폴라</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let lables = ['근력', '지력', '체력', '지구력', '재능'];
+        let itbank = [50, 80, 70, 40, 90];
+
+        let datasets = [
+            {
+                label: 'itbank님',
+                data: itbank,
+                backgroundColor: ['#ff000020'],
+                borderColor: ['#ff0000'],
+            },
+        ]
+
+        let options = {                      
+            scale: {
+                r: {
+                    min: 0,
+                    max: 100,
+                },
+                ticks: {
+                    stepSize: 20,
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Player Paramter'
+                    
+                }
+            }
+        }
+
+        let chart = new Chart(ctx, {
+            type: 'radar',                      
+            data: {                          
+                labels: lables,             
+                datasets: datasets,
+            },
+            options: options,
+        });
+
+        // 버튼
+        let btns = document.querySelectorAll('button');
+        let type = ['radar', 'pie', 'doughnut', 'polarArea']
+
+        for(let i =0; i < btns.length; i++){
+            btns[i].onclick = () => {
+                chart.config._config.type = type[i];
+                chart.update();
+            }
+        }        
+    </script>
+</body>
+</html>

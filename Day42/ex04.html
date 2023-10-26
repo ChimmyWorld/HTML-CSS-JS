@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+</head>
+<body>
+    <h1>다양한 그래프들</h1>
+    <hr>
+
+    <div style="width: 600px">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        let lables = ['근력', '지력', '체력', '지구력', '재능'];
+        let itbank = [50, 80, 70, 40, 90];
+        let naver = [80, 50, 90, 60, 70];
+
+        let datasets = [
+            {
+                label: 'itbank님',
+                data: itbank,
+                backgroundColor: ['#ff000020'],
+                borderColor: ['#ff0000'],
+            },
+            {
+                label: 'naver님',
+                data: naver,
+                backgroundColor: ['#03C75A20'],
+                borderColor: ['#03C75A']
+            }
+        ]
+
+        let options = {                      
+            scale: {
+                r: {
+                    min: 0,
+                    max: 100,
+                },
+                ticks: {
+                    stepSize: 20,
+                }
+            },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Player Paramter'
+                    
+                }
+            }
+        }
+
+        let chart = new Chart(ctx, {
+            type: 'radar',                      
+            data: {                          
+                labels: lables,             
+                datasets: datasets,
+            },
+            options: options,
+        });
+    </script>
+</body>
+</html>

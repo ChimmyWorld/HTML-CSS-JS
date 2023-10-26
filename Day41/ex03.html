@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex03.html</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 5px 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>기상청 동네 예보2</h1>
+    <hr>
+
+    <table>
+        <tr>
+            <th>지역</th>
+            <th>시간대</th>
+            <th>강수확률</th>
+            <th>기온</th>
+            <th>날씨</th>
+        </tr>
+    </table>
+
+    <pre></pre>
+
+
+    <script>
+        let url = 'https://apis.data.go.kr/1360000/VilageFcstMsgService/getLandFcst?serviceKey=A55To81aZTdR15wHCAfcAKy1D23R4%2BffePs%2BdxjX6gmRsIXAhuCJCNOV1wbiL8OlBgyLgcQW%2F40KwFMVghihFg%3D%3D&pageNo=1&numOfRows=10&dataType=JSON&regId=11H20201';
+
+        fetch(url, {method: 'get'})
+        .then(response => response.json())
+            .then(data => {
+                data = data.response.body.items.item;
+
+                numEfList = {
+                    0: '오늘 오후',
+                    1: '내일 오전',
+                    2: '내일 오후',
+                    3: '모레 오전',
+                    4: '모레 오후',
+                    5: '글피 오전',
+                    6: '글피 오후'
+                }
+
+                let table = document.querySelector('table');
+
+                // numEfList[data[0].numEf], '부산', data[0].rnSt, data[0].ta, data[0].wf
+                for(let i = 0; i<data.length; i++){
+                    //console.log(`${numEfList[data[i].numEf]}, 부산, 강수(${data[i].rnSt})%, 기온(${data[i].ta}˚C), ${data[i].wf}`)
+                    let msg = '<td>부산</td>';
+                    msg += `<td>${numEfList[data[i].numEf]}</td>`
+                    msg += `<td>${data[i].rnSt}%</td>`
+                    msg += `<td>${data[i].ta}˚C</td>`
+                    msg += `<td>${data[i].wf}</td>`  
+
+                    table.innerHTML +=msg;
+
+                }      
+        })
+    </script>
+</body>
+</html>

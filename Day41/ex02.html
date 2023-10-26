@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex02.html</title>
+</head>
+<body>
+    <h1>REST</h1>
+    <hr>
+
+    <h4>기상청 동네 예보</h4>
+
+    <pre></pre>
+
+    <script>
+        let url = 'https://apis.data.go.kr/1360000/VilageFcstMsgService/getWthrSituation?serviceKey=YLpN%2BNv%2F1aKBx%2Bw10lbK1%2B8Axwjd2qSLymxw8bI0kEKGbTh3Y52BQ4YfP7jv6sS4CL3AGW%2F6ejbhEjSKcG0%2FtQ%3D%3D&pageNo=1&numOfRows=10&dataType=JSON&stnId=159';
+
+        fetch(url, { method: 'get' })
+        .then(response => response.json())
+        .then(data => {
+            data = data.response.body.items.item[0];
+            //console.log(data.wfSv1);
+
+            document.querySelector('pre').innerHTML = data.wfSv1;
+        })
+        .catch(e =>{
+            console.log(e);
+            console.log('요청 실패~')
+        })
+
+    </script>
+</body>
+</html>

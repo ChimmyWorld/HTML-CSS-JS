@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1.html</title>
+    <style>
+        body {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        header {
+            background-color: violet;
+            height: 70px;
+        }
+        main {
+            background-color: aqua;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+        }
+        nav {
+            background-color: orange;
+            width: 100%;
+            margin: 15px 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 85%;
+        }
+        section {
+            background-color: crimson;
+            color: white;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        section > article {
+            background-color: khaki;
+            width: 90%;
+            height: 40%;
+        }
+        aside {
+            background-color: gold;
+            width: 25%;
+        }
+        footer {
+            background-color: chartreuse;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 수업자료/시멘틱.png 구현-->
+
+    <header>header</header>
+
+    <main>main
+        <nav>nav</nav>
+
+        <div class="container">
+            <section>section
+                <article>article1</article>
+                <article>article2</article>
+            </section>
+            <aside>aside</aside>
+        </div>
+    </main>
+
+    <footer>footer</footer>
+
+</body>
+</html>

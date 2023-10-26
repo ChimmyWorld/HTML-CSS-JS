@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex04.html</title>
+
+    <style>
+        .container {
+            display: flex;
+            border: 1px solid #aeaeae;
+            width: 200px;
+        }
+        .container > * {
+            border: 0;
+        }
+        .container > input {
+            width: 80%;
+            outline: none;
+        }
+        .container > button {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>목록</h1>
+    <hr>
+
+    <h4>할일 (To Do)</h4>
+
+    <div class="container">
+        <input name="item">
+        <button>등록</button>
+    </div>
+    
+    <ul class="list"></ul>
+
+    <script>
+        let btn = document.querySelector('.container > button');
+        let item = document.getElementsByName('item')[0];
+
+        let run = () => {
+            let li = document.createElement('li');
+            let list = document.querySelector('.list');
+
+            li.innerHTML = item.value;
+            item.value ='';
+
+            list.appendChild(li);
+            
+        };
+
+        btn.onclick = run;
+
+        item.onkeydown = (e) => {
+            if (e.key == 'Enter') {run()};
+        }
+
+
+    </script>
+</body>
+</html>
